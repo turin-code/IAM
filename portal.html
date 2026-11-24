@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Portal — IAM</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <main class="paper">
+    <header class="masthead">
+      <div class="masthead-meta">
+        <span>IAM · STUDENT RECORD</span>
+        <span id="portal-role">—</span>
+      </div>
+      <h1>Self-Evaluation Portal</h1>
+      <p class="subtitle">Institute for Analytical Machines</p>
+    </header>
+
+    <nav class="nav-bar" aria-label="Primary">
+      <div class="nav-links">
+        <a href="./index.html">Home</a>
+        <a href="./blogs.html">Blogs</a>
+        <a id="nav-write" href="./write.html" class="hidden">Write Blog (Admin)</a>
+      </div>
+      <div class="btn-row">
+        <span id="portal-student-id" class="small muted"></span>
+        <button id="signout-btn" type="button" class="btn btn-secondary">Sign Out</button>
+      </div>
+    </nav>
+
+    <div id="portal-status" class="status" role="status" aria-live="polite"></div>
+
+    <section id="portal-content" class="hidden" aria-labelledby="eval-form-heading">
+      <h2 id="eval-form-heading">1. Record Self-Evaluation</h2>
+      <form id="eval-form" class="auth-section">
+        <div class="grid-2">
+          <div class="field">
+            <label for="course-code">Course / Module Code</label>
+            <input id="course-code" type="text" placeholder="e.g. AM-101" required>
+          </div>
+          <div class="field">
+            <label for="mastery-score">Mastery (1 = Novice, 5 = Rigorous)</label>
+            <select id="mastery-score" required>
+              <option value="5">5 — Rigorous</option>
+              <option value="4">4 — Proficient</option>
+              <option value="3" selected>3 — Developing</option>
+              <option value="2">2 — Partial</option>
+              <option value="1">1 — Introductory</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="eval-topic">Topic / Thesis</label>
+          <input id="eval-topic" type="text" placeholder="e.g. Finite State Automata Proofs" required>
+        </div>
+
+        <div class="field">
+          <label for="eval-reflection">Analytical Reflection</label>
+          <textarea
+            id="eval-reflection"
+            placeholder="Summarize what you proved, where reasoning failed, and next steps."
+            required
+          ></textarea>
+        </div>
+
+        <button id="eval-submit" type="submit" class="btn">Submit Evaluation</button>
+      </form>
+
+      <h2>2. Evaluation Log</h2>
+      <ul id="eval-list" class="paper-list"></ul>
+    </section>
+
+    <footer class="paper-footer">
+      <span>Institute for Analytical Machines</span>
+      <a href="./blogs.html">Blogs &amp; Technical Notes</a>
+    </footer>
+  </main>
+
+  <script type="module" src="./js/portal.js"></script>
+</body>
+</html>
+

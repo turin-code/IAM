@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Institute for Analytical Machines — Login</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <main class="paper">
+    <header class="masthead">
+      <div class="masthead-meta">
+        <span>IAM · MONOGRAPH &amp; PORTAL</span>
+        <span>EST. 2026</span>
+      </div>
+      <h1>Institute for Analytical Machines</h1>
+      <p class="subtitle">Self-Evaluation Based Education &amp; Technical Publications</p>
+    </header>
+
+    <section class="abstract" aria-label="Abstract">
+      <span class="abstract-label">Abstract</span>
+      The Institute for Analytical Machines (IAM) is a college devoted to self-evaluation-based
+      study in computation, systems, and analytical inquiry. Enrolled students authenticate below
+      to record evaluations; public monographs remain openly readable.
+    </section>
+
+    <section class="auth-section" aria-labelledby="auth-heading">
+      <p id="auth-heading" class="section-tag">1. Institutional Authentication</p>
+
+      <div id="active-session-box" class="hidden">
+        <p class="small">
+          Signed in as <strong id="active-student-id" class="mono"></strong>
+          (<span id="active-role" class="mono"></span>).
+        </p>
+        <div class="btn-row">
+          <a href="./portal.html" class="btn">Enter Portal</a>
+          <a id="active-admin-link" href="./write.html" class="btn btn-secondary hidden">Write Blog</a>
+          <button id="signout-btn" type="button" class="btn btn-secondary">Sign Out</button>
+        </div>
+      </div>
+
+      <form id="login-form" novalidate>
+        <div class="field">
+          <label for="student-id">Student ID</label>
+          <input
+            id="student-id"
+            name="studentId"
+            type="text"
+            autocomplete="username"
+            placeholder="e.g. IAM-2026-001 or admin"
+            required
+          >
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            placeholder="••••••••"
+            required
+          >
+        </div>
+
+        <button id="login-submit" type="submit" class="btn">Sign In</button>
+      </form>
+
+      <div id="auth-status" class="status" role="status" aria-live="polite"></div>
+
+      <div class="under-login-link">
+        <a href="./blogs.html">&rarr; Blogs &amp; Technical Notes</a>
+        <span class="muted small">Public archive · GitHub-backed</span>
+      </div>
+    </section>
+
+    <footer class="paper-footer">
+      <span>Institute for Analytical Machines</span>
+      <span>GitHub Pages · Supabase</span>
+    </footer>
+  </main>
+
+  <script type="module" src="./js/index.js"></script>
+</body>
+</html>
+

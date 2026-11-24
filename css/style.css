@@ -1,0 +1,417 @@
+/* Institute for Analytical Machines (IAM)
+   Minimalist black-and-white technical paper stylesheet */
+
+:root {
+  --bg: #ffffff;
+  --fg: #111111;
+  --muted: #555555;
+  --border: #111111;
+  --rule: #d4d4d4;
+  --surface: #fafafa;
+  --serif: "Latin Modern Roman", "Computer Modern", Georgia, "Times New Roman", Times, serif;
+  --mono: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  --max-width: 700px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--serif);
+  line-height: 1.65;
+}
+
+.paper {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+/* Header / Masthead */
+.masthead {
+  border-bottom: 1.5px solid var(--border);
+  padding-bottom: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.masthead-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.masthead h1 {
+  margin: 0;
+  font-size: clamp(1.55rem, 4vw, 2.05rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.masthead .subtitle {
+  margin: 0.4rem 0 0;
+  font-style: italic;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+/* Navigation strip (used on inner pages, minimal & consistent) */
+.nav-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 2rem;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  align-items: center;
+}
+
+/* Typography & Sections */
+h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 2rem 0 0.75rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+h3 {
+  font-size: 1.02rem;
+  font-weight: 700;
+  margin: 1.5rem 0 0.5rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+a {
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+a:hover {
+  background-color: var(--fg);
+  color: var(--bg);
+  text-decoration: none;
+}
+
+.mono {
+  font-family: var(--mono);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.small {
+  font-size: 0.875rem;
+}
+
+/* Abstract block */
+.abstract {
+  margin: 1.5rem 0 2rem;
+  padding: 1rem 1.15rem;
+  border-left: 2px solid var(--border);
+  background-color: var(--surface);
+  font-size: 0.95rem;
+}
+
+.abstract-label {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--muted);
+}
+
+/* Forms */
+.auth-section {
+  margin: 1.75rem 0 1.25rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+}
+
+.section-tag {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin: 0 0 0.75rem;
+}
+
+.field {
+  margin-bottom: 1rem;
+}
+
+.field label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.35rem;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.6rem 0.75rem;
+  font-family: var(--mono);
+  font-size: 1rem; /* >=16px prevents mobile browser auto-zoom */
+  color: var(--fg);
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 0;
+  appearance: none;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--fg);
+  outline-offset: 1px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.6rem 1.25rem;
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--bg);
+  background-color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: 0;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:hover {
+  color: var(--fg);
+  background-color: var(--bg);
+}
+
+.btn-secondary {
+  color: var(--fg);
+  background-color: var(--bg);
+}
+
+.btn-secondary:hover {
+  color: var(--bg);
+  background-color: var(--fg);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+/* Front page blog hyperlink bar */
+.under-login-link {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  font-family: var(--mono);
+  font-size: 0.9rem;
+}
+
+/* Status / Notices */
+.status {
+  margin-top: 1rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--border);
+  background-color: var(--surface);
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.status:empty {
+  display: none;
+}
+
+.status.error {
+  border-width: 2px;
+}
+
+/* Lists / Papers / Evaluations */
+.paper-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.paper-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.paper-item:first-child {
+  border-top: 1px solid var(--rule);
+}
+
+.paper-item-meta {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-bottom: 0.25rem;
+}
+
+.paper-item-title {
+  margin: 0 0 0.35rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.paper-item-summary {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* Rendered Markdown article */
+.article-body {
+  margin-top: 1.5rem;
+}
+
+.article-body pre {
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--rule);
+  background-color: var(--surface);
+  overflow-x: auto;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.article-body code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  background-color: var(--surface);
+  padding: 0.1em 0.3em;
+}
+
+.article-body pre code {
+  padding: 0;
+  background: none;
+}
+
+.article-body blockquote {
+  margin: 1rem 0;
+  padding: 0.25rem 1rem;
+  border-left: 2px solid var(--border);
+  color: var(--muted);
+}
+
+.article-body hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 1.75rem 0;
+}
+
+/* Grid helpers */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Footer */
+.paper-footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .paper {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .auth-section {
+    padding: 1.15rem;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
