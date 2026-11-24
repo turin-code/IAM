@@ -47,6 +47,23 @@ create policy "Users can update own profile name"
     and role = (select p.role from public.profiles p where p.id = auth.uid())
   );
 
+-- Resolve a Student/Admin ID (e.g. "2601001" or "admin") to its Auth email.
+create or replace function public.resolve_login_email(p_identifier text)
+returns text
+language sql
+stable
+security definer
+set search_path = public, auth
+as $$
+  select u.email
+  from public.profiles p
+  join auth.users u on u.id = p.id
+  where lower(p.student_id) = lower(trim(p_identifier))
+  limit 1;
+$$;
+
+grant execute on function public.resolve_login_email(text) to anon, authenticated;
+
 -- 2. Applications table: prospective students apply; admin approves and assigns ID.
 create table if not exists public.applications (
   id uuid primary key default gen_random_uuid(),

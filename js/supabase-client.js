@@ -102,16 +102,28 @@ export function isAdminUser(profile, user) {
 
 /**
  * Signs in with a Student ID (or email) and password.
+ * Resolves Student ID -> Auth email via public.resolve_login_email, falling back to @iam.local.
  */
 export async function signInWithStudentId(studentId, password) {
   const client = getSupabaseClient();
   if (!client) {
     throw new Error('Supabase is not configured. Update js/config.js first.');
   }
-  const email = studentIdToEmail(studentId);
-  if (!email || !password) {
+  const trimmed = String(studentId || '').trim();
+  if (!trimmed || !password) {
     throw new Error('Enter both Student ID and password.');
   }
+
+  let email = '';
+  if (trimmed.includes('@')) {
+    email = trimmed.toLowerCase();
+  } else {
+    const { data: resolvedEmail } = await client.rpc('resolve_login_email', {
+      p_identifier: trimmed,
+    });
+    email = resolvedEmail || studentIdToEmail(trimmed);
+  }
+
   const { data, error } = await client.auth.signInWithPassword({ email, password });
   if (error) {
     throw error;

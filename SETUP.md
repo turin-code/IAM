@@ -5,14 +5,14 @@
 1. Create a new Supabase project.
 2. Open **SQL Editor** and run [`supabase/schema.sql`](supabase/schema.sql).
 3. Open **Authentication → Providers → Email**:
-   - Disable **Confirm email** so students activating `YYPPRRR` accounts (`<studentID>@iam.local`) can sign in immediately without an external inbox.
+   - Optionally disable **Confirm email** if you want approved students activating on `apply.html` to sign in immediately without clicking an email link.
 4. Open **Authentication → URL Configuration**:
    - **Site URL:** `https://turin-code.github.io/IAM/`
    - **Redirect URLs:** add `http://localhost:8080/*` and `https://turin-code.github.io/IAM/*`.
 5. Create admin / initial users in **Authentication → Users → Add user**:
    - Student IDs use the 7-digit format `YYPPRRR` (`2601001` = 2026, `01` BSc in Analytical Machines, roll `001`; `2610001` = 2026, `10` BSc in Computer Science, roll `001`).
-   - Students can apply on `apply.html`, get approved in `admin.html` (which auto-generates their ID), and activate their password.
-   - To promote your admin user (`admin@iam.local`), run in SQL Editor:
+   - Students apply on `apply.html` with their real email, get approved in `admin.html` (which auto-generates their ID), and activate their account using their application email while logging in with their Student ID (`resolve_login_email`).
+   - To promote your admin user (`admin@iam.local` or your admin email with `student_id = 'admin'`), run in SQL Editor:
      ```sql
      update public.profiles
      set role = 'admin'

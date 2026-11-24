@@ -2,7 +2,6 @@ import { PROGRAM_CODES } from './config.js';
 import {
   getSupabaseClient,
   isSupabaseConfigured,
-  studentIdToEmail,
 } from './supabase-client.js';
 
 const applyForm = document.getElementById('apply-form');
@@ -164,9 +163,8 @@ activateForm.addEventListener('submit', async (event) => {
   activateSubmit.textContent = 'Activating...';
   try {
     const client = getSupabaseClient();
-    const authEmail = studentIdToEmail(approvedRecord.generated_student_id);
     const { data, error } = await client.auth.signUp({
-      email: authEmail,
+      email: approvedRecord.email,
       password,
       options: {
         data: {
@@ -193,7 +191,7 @@ activateForm.addEventListener('submit', async (event) => {
     } else {
       setStatus(
         activateStatus,
-        `Account created for Student ID ${approvedRecord.generated_student_id}. You can now sign in on the Login page.`
+        `Account created for Student ID ${approvedRecord.generated_student_id}. Check ${approvedRecord.email} if email confirmation is enabled, then sign in with ID ${approvedRecord.generated_student_id}.`
       );
     }
   } catch (err) {
