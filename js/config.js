@@ -2,7 +2,7 @@
 // Replace SUPABASE_URL and SUPABASE_ANON_KEY with your Supabase project's values.
 // Never place a service_role key in client-side code.
 
-export const SUPABASE_URL = 'https://tiycpskxwxyraonikjnl.supabase.co/rest/v1/';
+export const SUPABASE_URL = 'https://tiycpskxwxyraonikjnl.supabase.co';
 export const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRpeWNwc2t4d3h5cmFvbmlram5sIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTU1MzU1ODQsImV4cCI6MjExMTExMTU4NH0.-kkhGovVpQiw6_mJJIHRjzrFoL-O0t-fyz8MY_fiykk';
 
 // Student IDs without '@' are mapped to <lowercase-id>@<ID_EMAIL_DOMAIN>
