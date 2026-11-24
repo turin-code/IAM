@@ -9,6 +9,7 @@ import {
 const postListEl = document.getElementById('post-list');
 const statusEl = document.getElementById('blogs-status');
 const navPortal = document.getElementById('nav-portal');
+const navAdmin = document.getElementById('nav-admin');
 const navWrite = document.getElementById('nav-write');
 const navUser = document.getElementById('nav-user');
 
@@ -26,6 +27,7 @@ async function loadNavSession() {
     navUser.textContent = `ID: ${id}`;
     navPortal.classList.remove('hidden');
     if (admin) {
+      navAdmin.classList.remove('hidden');
       navWrite.classList.remove('hidden');
     }
   } catch {

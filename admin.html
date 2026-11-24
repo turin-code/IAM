@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Institute for Analytical Machines</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <main class="paper">
+    <header class="masthead">
+      <h1>Institute for Analytical Machines</h1>
+      <p class="subtitle">Administration</p>
+    </header>
+
+    <nav class="nav-bar" aria-label="Primary">
+      <div class="nav-links">
+        <a href="./index.html">Home</a>
+        <a href="./blogs.html">Blogs</a>
+        <a href="./portal.html">Portal</a>
+        <a href="./admin.html">Admin</a>
+        <a href="./write.html">Write Blog</a>
+      </div>
+      <div class="btn-row">
+        <span id="admin-id-label" class="small muted"></span>
+        <button id="signout-btn" type="button" class="btn btn-secondary btn-sm">Sign Out</button>
+      </div>
+    </nav>
+
+    <div id="admin-status" class="status" role="status" aria-live="polite"></div>
+
+    <div id="admin-content" class="hidden">
+      <section aria-labelledby="apps-heading">
+        <h2 id="apps-heading">1. Student Applications</h2>
+        <ul id="applications-list" class="paper-list"></ul>
+      </section>
+
+      <section aria-labelledby="courses-heading">
+        <h2 id="courses-heading">2. Add Course</h2>
+        <form id="course-form" class="panel-box">
+          <input id="course-edit-id" type="hidden">
+
+          <div class="grid-3">
+            <div class="field">
+              <label for="c-code">Course Code</label>
+              <input id="c-code" type="text" required>
+            </div>
+            <div class="field">
+              <label for="c-dept">Department</label>
+              <select id="c-dept" required>
+                <option value="ALL">ALL — Shared / Core</option>
+                <option value="01">01 — BSc in Analytical Machines</option>
+                <option value="10">10 — BSc in Computer Science</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="c-credit">Credit</label>
+              <input id="c-credit" type="number" step="0.5" min="0.5" max="10" value="3.0" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="c-title">Course Title</label>
+            <input id="c-title" type="text" required>
+          </div>
+
+          <div class="field">
+            <label for="c-outline">1. Course Outline</label>
+            <textarea id="c-outline" required></textarea>
+          </div>
+
+          <div class="field">
+            <label for="c-questions-file">2. Exam Questions (PDF)</label>
+            <input id="c-questions-file" type="file" accept="application/pdf,.pdf">
+          </div>
+
+          <div class="field">
+            <label for="c-assignments-file">3. Assignments / Practice Problems (PDF)</label>
+            <input id="c-assignments-file" type="file" accept="application/pdf,.pdf">
+          </div>
+
+          <div class="field">
+            <label for="c-solutions-file">4. Assignments &amp; Practice Solutions (PDF)</label>
+            <input id="c-solutions-file" type="file" accept="application/pdf,.pdf">
+          </div>
+
+          <div class="btn-row">
+            <button id="course-submit" type="submit" class="btn">Save Course</button>
+            <button id="course-cancel" type="button" class="btn btn-secondary hidden">Cancel Edit</button>
+          </div>
+        </form>
+
+        <h3>Published Courses</h3>
+        <ul id="admin-courses-list" class="paper-list"></ul>
+      </section>
+
+      <section aria-labelledby="grades-heading">
+        <h2 id="grades-heading">3. Student Grades &amp; Credits</h2>
+        <ul id="enrollments-list" class="paper-list"></ul>
+      </section>
+    </div>
+  </main>
+
+  <script type="module" src="./js/admin.js"></script>
+</body>
+</html>
+

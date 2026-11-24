@@ -2,6 +2,7 @@ import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 import {
   ADMIN_IDS,
   ID_EMAIL_DOMAIN,
+  PROGRAM_CODES,
   SUPABASE_ANON_KEY,
   SUPABASE_URL,
 } from './config.js';
@@ -31,6 +32,36 @@ export function getSupabaseClient() {
     });
   }
   return cachedClient;
+}
+
+/**
+ * Returns the human-readable department name for a program code.
+ */
+export function formatDepartmentName(code) {
+  if (code === 'ALL') {
+    return 'All Departments';
+  }
+  return PROGRAM_CODES[code] || code || '';
+}
+
+/**
+ * Parses a structured 7-digit student ID (YYPPRRR, e.g. 2601001).
+ * Returns null for non-numeric IDs such as "admin".
+ */
+export function parseStudentId(rawId) {
+  const clean = String(rawId || '').trim();
+  const match = clean.match(/^(\d{2})(\d{2})(\d{3})$/);
+  if (!match) {
+    return null;
+  }
+  const [, yy, programCode, roll] = match;
+  return {
+    id: clean,
+    year: `20${yy}`,
+    programCode,
+    programName: PROGRAM_CODES[programCode] || `Program ${programCode}`,
+    roll,
+  };
 }
 
 /**
@@ -124,7 +155,7 @@ export async function getSessionAndProfile() {
 
   const { data: profile } = await client
     .from('profiles')
-    .select('id, student_id, full_name, role, created_at')
+    .select('id, student_id, full_name, contact_email, department_code, role, created_at')
     .eq('id', user.id)
     .maybeSingle();
 

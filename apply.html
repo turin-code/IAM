@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply — Institute for Analytical Machines</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <main class="paper">
+    <header class="masthead">
+      <h1>Institute for Analytical Machines</h1>
+      <p class="subtitle">Student Application</p>
+    </header>
+
+    <nav class="nav-bar" aria-label="Primary">
+      <div class="nav-links">
+        <a href="./index.html">Login</a>
+        <a href="./blogs.html">Blogs</a>
+        <a href="./apply.html">Apply</a>
+      </div>
+    </nav>
+
+    <section aria-labelledby="apply-heading">
+      <h2 id="apply-heading">1. Application Form</h2>
+      <form id="apply-form" class="panel-box" novalidate>
+        <div class="field">
+          <label for="apply-name">Full Name</label>
+          <input id="apply-name" type="text" required>
+        </div>
+
+        <div class="field">
+          <label for="apply-email">Email Address</label>
+          <input id="apply-email" type="email" required>
+        </div>
+
+        <div class="field">
+          <label for="apply-dept">Desired Department</label>
+          <select id="apply-dept" required>
+            <option value="01">01 — BSc in Analytical Machines</option>
+            <option value="10">10 — BSc in Computer Science</option>
+          </select>
+        </div>
+
+        <button id="apply-submit" type="submit" class="btn">Submit Application</button>
+      </form>
+      <div id="apply-status" class="status" role="status" aria-live="polite"></div>
+    </section>
+
+    <section aria-labelledby="status-heading">
+      <h2 id="status-heading">2. Check Status &amp; Activate Student ID</h2>
+      <form id="check-form" class="panel-box" novalidate>
+        <div class="field">
+          <label for="check-email">Application Email Address</label>
+          <input id="check-email" type="email" required>
+        </div>
+        <button id="check-submit" type="submit" class="btn btn-secondary">Check Status</button>
+      </form>
+
+      <div id="check-status" class="status" role="status" aria-live="polite"></div>
+
+      <form id="activate-form" class="panel-box hidden" style="margin-top: 1rem;" novalidate>
+        <p class="small">
+          Assigned Student ID: <strong id="assigned-id" class="mono"></strong>
+          (<span id="assigned-dept"></span>)
+        </p>
+        <div class="field">
+          <label for="activate-password">Set Login Password</label>
+          <input id="activate-password" type="password" autocomplete="new-password" required>
+        </div>
+        <button id="activate-submit" type="submit" class="btn">Activate Student ID</button>
+      </form>
+      <div id="activate-status" class="status" role="status" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <script type="module" src="./js/apply.js"></script>
+</body>
+</html>
+

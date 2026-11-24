@@ -10,59 +10,90 @@
   <main class="paper">
     <header class="masthead">
       <h1>Institute for Analytical Machines</h1>
-      <p class="subtitle">Self-Evaluation Portal &middot; <span id="portal-role">—</span></p>
+      <p class="subtitle">Student Dashboard &middot; <span id="portal-role">—</span></p>
     </header>
 
     <nav class="nav-bar" aria-label="Primary">
       <div class="nav-links">
         <a href="./index.html">Home</a>
         <a href="./blogs.html">Blogs</a>
+        <a id="nav-admin" href="./admin.html" class="hidden">Admin</a>
         <a id="nav-write" href="./write.html" class="hidden">Write Blog</a>
       </div>
       <div class="btn-row">
         <span id="portal-student-id" class="small muted"></span>
-        <button id="signout-btn" type="button" class="btn btn-secondary">Sign Out</button>
+        <button id="signout-btn" type="button" class="btn btn-secondary btn-sm">Sign Out</button>
       </div>
     </nav>
 
     <div id="portal-status" class="status" role="status" aria-live="polite"></div>
 
-    <section id="portal-content" class="hidden" aria-labelledby="eval-form-heading">
-      <h2 id="eval-form-heading">1. Record Self-Evaluation</h2>
-      <form id="eval-form" class="panel-box">
-        <div class="grid-2">
-          <div class="field">
-            <label for="course-code">Course Code</label>
-            <input id="course-code" type="text" required>
+    <div id="portal-content" class="hidden">
+      <section aria-labelledby="academic-summary-heading">
+        <h2 id="academic-summary-heading">1. Academic Standing</h2>
+        <div class="grid-3">
+          <div class="stat-box">
+            <span class="stat-label">Taken Courses</span>
+            <span id="stat-taken" class="stat-value">0</span>
           </div>
-          <div class="field">
-            <label for="mastery-score">Mastery (1–5)</label>
-            <select id="mastery-score" required>
-              <option value="5">5 — Rigorous</option>
-              <option value="4">4 — Proficient</option>
-              <option value="3" selected>3 — Developing</option>
-              <option value="2">2 — Partial</option>
-              <option value="1">1 — Introductory</option>
-            </select>
+          <div class="stat-box">
+            <span class="stat-label">Gained Credit</span>
+            <span id="stat-credits" class="stat-value">0.0</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">CGPA</span>
+            <span id="stat-cgpa" class="stat-value">—</span>
           </div>
         </div>
+      </section>
 
-        <div class="field">
-          <label for="eval-topic">Topic</label>
-          <input id="eval-topic" type="text" required>
-        </div>
+      <section aria-labelledby="taken-courses-heading">
+        <h2 id="taken-courses-heading">2. Taken Courses</h2>
+        <ul id="taken-list" class="paper-list"></ul>
+      </section>
 
-        <div class="field">
-          <label for="eval-reflection">Reflection</label>
-          <textarea id="eval-reflection" required></textarea>
-        </div>
+      <section aria-labelledby="catalog-heading">
+        <h2 id="catalog-heading">3. Available Courses</h2>
+        <ul id="catalog-list" class="paper-list"></ul>
+      </section>
 
-        <button id="eval-submit" type="submit" class="btn">Submit</button>
-      </form>
+      <section aria-labelledby="eval-form-heading">
+        <h2 id="eval-form-heading">4. Record Self-Evaluation</h2>
+        <form id="eval-form" class="panel-box">
+          <div class="grid-2">
+            <div class="field">
+              <label for="course-code">Course Code</label>
+              <input id="course-code" type="text" required>
+            </div>
+            <div class="field">
+              <label for="mastery-score">Mastery (1–5)</label>
+              <select id="mastery-score" required>
+                <option value="5">5 — Rigorous</option>
+                <option value="4">4 — Proficient</option>
+                <option value="3" selected>3 — Developing</option>
+                <option value="2">2 — Partial</option>
+                <option value="1">1 — Introductory</option>
+              </select>
+            </div>
+          </div>
 
-      <h2>2. Evaluation Log</h2>
-      <ul id="eval-list" class="paper-list"></ul>
-    </section>
+          <div class="field">
+            <label for="eval-topic">Topic</label>
+            <input id="eval-topic" type="text" required>
+          </div>
+
+          <div class="field">
+            <label for="eval-reflection">Reflection</label>
+            <textarea id="eval-reflection" required></textarea>
+          </div>
+
+          <button id="eval-submit" type="submit" class="btn">Submit</button>
+        </form>
+
+        <h2>5. Evaluation Log</h2>
+        <ul id="eval-list" class="paper-list"></ul>
+      </section>
+    </div>
   </main>
 
   <script type="module" src="./js/portal.js"></script>

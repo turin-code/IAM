@@ -16,6 +16,7 @@ const statusBox = document.getElementById('auth-status');
 const activeBox = document.getElementById('active-session-box');
 const activeIdEl = document.getElementById('active-student-id');
 const activeRoleEl = document.getElementById('active-role');
+const activeAdminPanelLink = document.getElementById('active-admin-panel-link');
 const activeAdminLink = document.getElementById('active-admin-link');
 const signOutBtn = document.getElementById('signout-btn');
 
@@ -37,6 +38,7 @@ async function refreshSessionView() {
       const admin = isAdminUser(profile, user);
       activeIdEl.textContent = displayId;
       activeRoleEl.textContent = admin ? 'admin' : 'student';
+      activeAdminPanelLink.classList.toggle('hidden', !admin);
       activeAdminLink.classList.toggle('hidden', !admin);
       activeBox.classList.remove('hidden');
       loginForm.classList.add('hidden');
