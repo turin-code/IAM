@@ -3,18 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Blog Writer — IAM</title>
+  <title>Write Blog — Institute for Analytical Machines</title>
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
   <main class="paper">
     <header class="masthead">
-      <div class="masthead-meta">
-        <span>IAM · ADMIN PUBLICATION</span>
-        <span>GITHUB REPOSITORY WRITER</span>
-      </div>
-      <h1>Publish Technical Note</h1>
-      <p class="subtitle">Author blogs under Admin ID and commit to GitHub</p>
+      <h1>Institute for Analytical Machines</h1>
+      <p class="subtitle">Write Blog</p>
     </header>
 
     <nav class="nav-bar" aria-label="Primary">
@@ -32,67 +28,51 @@
     <div id="writer-status" class="status" role="status" aria-live="polite"></div>
 
     <section id="writer-content" class="hidden" aria-labelledby="compose-heading">
-      <h2 id="compose-heading">1. Manuscript Metadata &amp; Body</h2>
+      <h2 id="compose-heading">1. Manuscript</h2>
 
-      <form id="writer-form" class="auth-section">
+      <form id="writer-form" class="panel-box">
         <div class="field">
           <label for="post-title">Title</label>
-          <input id="post-title" type="text" placeholder="e.g. Note 02: Lambda Calculus Foundations" required>
+          <input id="post-title" type="text" required>
         </div>
 
         <div class="grid-2">
           <div class="field">
-            <label for="post-slug">Filename Slug</label>
-            <input id="post-slug" type="text" placeholder="e.g. lambda-calculus-foundations" required>
+            <label for="post-slug">Slug</label>
+            <input id="post-slug" type="text" required>
           </div>
           <div class="field">
-            <label for="post-date">Publication Date</label>
+            <label for="post-date">Date</label>
             <input id="post-date" type="text" required>
           </div>
         </div>
 
         <div class="field">
-          <label for="post-summary">Abstract / Summary</label>
-          <input id="post-summary" type="text" placeholder="One-sentence abstract for the archive list." required>
+          <label for="post-summary">Abstract</label>
+          <input id="post-summary" type="text" required>
         </div>
 
         <div class="field">
-          <label for="post-markdown">Markdown Body</label>
-          <textarea
-            id="post-markdown"
-            rows="12"
-            placeholder="# 1. Introduction&#10;&#10;Write the manuscript in Markdown..."
-            required
-          ></textarea>
+          <label for="post-markdown">Markdown</label>
+          <textarea id="post-markdown" rows="12" required></textarea>
         </div>
 
         <div class="field">
-          <label for="github-token">GitHub Personal Access Token (Contents: Read &amp; Write)</label>
-          <input
-            id="github-token"
-            type="password"
-            autocomplete="off"
-            placeholder="github_pat_... (kept only in memory/session)"
-          >
+          <label for="github-token">GitHub Token (Contents: Read &amp; Write)</label>
+          <input id="github-token" type="password" autocomplete="off">
         </div>
 
         <div class="btn-row">
-          <button id="publish-btn" type="submit" class="btn">Publish to GitHub Repo</button>
-          <button id="download-btn" type="button" class="btn btn-secondary">Download .md &amp; index.json</button>
+          <button id="publish-btn" type="submit" class="btn">Publish to GitHub</button>
+          <button id="download-btn" type="button" class="btn btn-secondary">Download Files</button>
         </div>
       </form>
 
-      <h2>2. Live Paper Preview</h2>
+      <h2>2. Preview</h2>
       <article id="markdown-preview" class="article-body abstract"></article>
     </section>
-
-    <footer class="paper-footer">
-      <span>Institute for Analytical Machines</span>
-      <a href="./blogs.html">View Published Blogs</a>
-    </footer>
   </main>
 
   <script type="module" src="./js/write.js"></script>
 </body>
 </html>
-

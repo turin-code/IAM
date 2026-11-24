@@ -6,11 +6,11 @@
   --fg: #111111;
   --muted: #555555;
   --border: #111111;
-  --rule: #d4d4d4;
+  --rule: #d9d9d9;
   --surface: #fafafa;
   --serif: "Latin Modern Roman", "Computer Modern", Georgia, "Times New Roman", Times, serif;
   --mono: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-  --max-width: 700px;
+  --max-width: 620px;
 }
 
 *,
@@ -30,58 +30,49 @@ body {
   background-color: var(--bg);
   color: var(--fg);
   font-family: var(--serif);
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
 .paper {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 2.5rem 1.25rem 4rem;
+  padding: 3rem 1.25rem 4rem;
 }
 
-/* Header / Masthead */
+.paper-front {
+  padding-top: 5rem;
+}
+
+/* Header */
 .masthead {
-  border-bottom: 1.5px solid var(--border);
-  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.9rem;
   margin-bottom: 2rem;
-}
-
-.masthead-meta {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 0.5rem 1rem;
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 0.75rem;
 }
 
 .masthead h1 {
   margin: 0;
-  font-size: clamp(1.55rem, 4vw, 2.05rem);
+  font-size: clamp(1.45rem, 4vw, 1.85rem);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.25;
   letter-spacing: -0.01em;
 }
 
 .masthead .subtitle {
-  margin: 0.4rem 0 0;
-  font-style: italic;
+  margin: 0.35rem 0 0;
+  font-family: var(--mono);
+  font-size: 0.8rem;
   color: var(--muted);
-  font-size: 1rem;
 }
 
-/* Navigation strip (used on inner pages, minimal & consistent) */
+/* Navigation */
 .nav-bar {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem 1rem;
-  padding: 0.65rem 0;
+  padding-bottom: 0.75rem;
   border-bottom: 1px solid var(--rule);
   margin-bottom: 2rem;
   font-family: var(--mono);
@@ -95,9 +86,9 @@ body {
   align-items: center;
 }
 
-/* Typography & Sections */
+/* Typography */
 h2 {
-  font-size: 1.15rem;
+  font-size: 1.08rem;
   font-weight: 700;
   margin: 2rem 0 0.75rem;
   padding-bottom: 0.25rem;
@@ -105,9 +96,9 @@ h2 {
 }
 
 h3 {
-  font-size: 1.02rem;
+  font-size: 1rem;
   font-weight: 700;
-  margin: 1.5rem 0 0.5rem;
+  margin: 1.25rem 0 0.4rem;
 }
 
 p {
@@ -139,10 +130,10 @@ a:hover {
   font-size: 0.875rem;
 }
 
-/* Abstract block */
+/* Abstract */
 .abstract {
-  margin: 1.5rem 0 2rem;
-  padding: 1rem 1.15rem;
+  margin: 1.25rem 0 1.75rem;
+  padding: 0.85rem 1rem;
   border-left: 2px solid var(--border);
   background-color: var(--surface);
   font-size: 0.95rem;
@@ -150,28 +141,22 @@ a:hover {
 
 .abstract-label {
   font-family: var(--mono);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   display: block;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.3rem;
   color: var(--muted);
 }
 
 /* Forms */
 .auth-section {
-  margin: 1.75rem 0 1.25rem;
-  padding: 1.5rem;
-  border: 1px solid var(--border);
+  margin: 0;
 }
 
-.section-tag {
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--muted);
-  margin: 0 0 0.75rem;
+.panel-box {
+  padding: 1.25rem;
+  border: 1px solid var(--border);
 }
 
 .field {
@@ -181,7 +166,7 @@ a:hover {
 .field label {
   display: block;
   font-family: var(--mono);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 0.35rem;
@@ -197,7 +182,7 @@ textarea {
   min-height: 44px;
   padding: 0.6rem 0.75rem;
   font-family: var(--mono);
-  font-size: 1rem; /* >=16px prevents mobile browser auto-zoom */
+  font-size: 1rem;
   color: var(--fg);
   background-color: var(--bg);
   border: 1px solid var(--border);
@@ -225,7 +210,7 @@ textarea:focus {
   min-height: 44px;
   padding: 0.6rem 1.25rem;
   font-family: var(--mono);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--bg);
@@ -263,21 +248,16 @@ textarea:focus {
   align-items: center;
 }
 
-/* Front page blog hyperlink bar */
+/* Front page blog hyperlink */
 .under-login-link {
-  margin-top: 1.25rem;
+  margin-top: 1.5rem;
   padding-top: 1rem;
   border-top: 1px solid var(--rule);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.5rem 1rem;
   font-family: var(--mono);
   font-size: 0.9rem;
 }
 
-/* Status / Notices */
+/* Status */
 .status {
   margin-top: 1rem;
   padding: 0.65rem 0.85rem;
@@ -296,11 +276,11 @@ textarea:focus {
   border-width: 2px;
 }
 
-/* Lists / Papers / Evaluations */
+/* Lists */
 .paper-list {
   list-style: none;
   padding: 0;
-  margin: 1rem 0;
+  margin: 0;
 }
 
 .paper-item {
@@ -320,8 +300,8 @@ textarea:focus {
 }
 
 .paper-item-title {
-  margin: 0 0 0.35rem;
-  font-size: 1.1rem;
+  margin: 0 0 0.3rem;
+  font-size: 1.08rem;
   font-weight: 700;
 }
 
@@ -331,9 +311,9 @@ textarea:focus {
   color: var(--muted);
 }
 
-/* Rendered Markdown article */
+/* Rendered Markdown */
 .article-body {
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
 }
 
 .article-body pre {
@@ -368,42 +348,29 @@ textarea:focus {
 .article-body hr {
   border: 0;
   border-top: 1px solid var(--rule);
-  margin: 1.75rem 0;
+  margin: 1.5rem 0;
 }
 
-/* Grid helpers */
+/* Grid */
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
 
-/* Footer */
-.paper-footer {
-  margin-top: 3rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--rule);
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  color: var(--muted);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 0.5rem 1rem;
-}
-
 .hidden {
   display: none !important;
 }
 
-/* Mobile adjustments */
+/* Mobile */
 @media (max-width: 600px) {
-  .paper {
-    padding: 1.5rem 1rem 3rem;
+  .paper,
+  .paper-front {
+    padding: 2rem 1rem 3rem;
   }
 
-  .auth-section {
-    padding: 1.15rem;
+  .panel-box {
+    padding: 1rem;
   }
 
   .grid-2 {
@@ -414,4 +381,3 @@ textarea:focus {
     width: 100%;
   }
 }
-
